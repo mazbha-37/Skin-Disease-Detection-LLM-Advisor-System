@@ -1,14 +1,8 @@
 # Skin Disease Detection & AI Advisor
 
-## Disclaimer
-
-This tool is for **educational purposes only** and is **not medical advice**. Always consult a qualified dermatologist for proper diagnosis and treatment.
-
----
-
 ## Overview
 
-An AI-powered system that classifies skin conditions from uploaded images and provides personalised medical guidance. The system uses a **YOLOv8s** model trained on 27,200 skin images across 10 disease classes, then passes results to **Google Gemini 2.5 Flash** to generate actionable recommendations, next steps, and daily care tips.
+An AI-powered system that classifies skin conditions from uploaded images and provides personalised medical guidance. The system uses a **YOLOv8s** model trained on around 27,200 (27,153) skin images across 10 disease classes, then passes results to **Google Gemini 2.5 Flash** to generate actionable recommendations, next steps, and daily care tips.
 
 ---
 
@@ -27,12 +21,12 @@ An AI-powered system that classifies skin conditions from uploaded images and pr
 
 Four transfer learning models were trained and compared on the Kaggle Skin Disease Dataset:
 
-| Model | Val Accuracy | Test Accuracy |
-|---|---|---|
-| **YOLOv8s (Selected)** | **84.41%** | **84.90%** |
-| MobileNetV3 | 80.54% | 81.55% |
-| ResNet50 | 74.31% | 72.97% |
-| EfficientNet-B3 | 71.99% | 70.54% |
+| Model                  | Val Accuracy | Test Accuracy |
+| ---------------------- | ------------ | ------------- |
+| **YOLOv8s (Selected)** | **84.41%**   | **84.90%**    |
+| MobileNetV3            | 80.54%       | 81.55%        |
+| ResNet50               | 74.31%       | 72.97%        |
+| EfficientNet-B3        | 71.99%       | 70.54%        |
 
 YOLOv8s was selected for its superior accuracy and fast inference speed, making it ideal for real-time classification. Model training was performed on **Google Colab** (GPU) and the trained weights (`best.pt`) are loaded at runtime.
 
@@ -44,31 +38,31 @@ YOLOv8s was selected for its superior accuracy and fast inference speed, making 
 
 ## Supported Conditions (10 Classes)
 
-| # | Condition |
-|---|---|
-| 1 | Eczema |
-| 2 | Melanoma |
-| 3 | Atopic Dermatitis |
-| 4 | Basal Cell Carcinoma |
-| 5 | Melanocytic Nevi |
-| 6 | Benign Keratosis-like Lesions |
-| 7 | Psoriasis |
-| 8 | Seborrheic Keratoses |
-| 9 | Tinea Ringworm Candidiasis |
-| 10 | Warts Molluscum and other Viral Infections |
+| #   | Condition                                  |
+| --- | ------------------------------------------ |
+| 1   | Eczema                                     |
+| 2   | Melanoma                                   |
+| 3   | Atopic Dermatitis                          |
+| 4   | Basal Cell Carcinoma                       |
+| 5   | Melanocytic Nevi                           |
+| 6   | Benign Keratosis-like Lesions              |
+| 7   | Psoriasis                                  |
+| 8   | Seborrheic Keratoses                       |
+| 9   | Tinea Ringworm Candidiasis                 |
+| 10  | Warts Molluscum and other Viral Infections |
 
 ---
 
 ## Tech Stack
 
-| Component | Technology |
-|---|---|
-| Backend | Python, FastAPI |
-| ML Model | YOLOv8s (Ultralytics) |
-| LLM | Google Gemini 2.5 Flash |
-| Frontend | Gradio |
-| Database | SQLite (via SQLAlchemy) |
-| Deployment | Docker |
+| Component  | Technology              |
+| ---------- | ----------------------- |
+| Backend    | Python, FastAPI         |
+| ML Model   | YOLOv8s (Ultralytics)   |
+| LLM        | Google Gemini 2.5 Flash |
+| Frontend   | Gradio                  |
+| Database   | SQLite (via SQLAlchemy) |
+| Deployment | Docker                  |
 
 ---
 
@@ -125,7 +119,7 @@ Get a free Gemini API key at [Google AI Studio](https://aistudio.google.com/).
 
 ### 4. Add the trained model
 
-Place `best.pt` (trained YOLOv8s weights) in the `checkpoints/` folder.
+I have added trained YOLOv8 here.
 
 ### 5. Run the API
 
@@ -152,6 +146,7 @@ docker compose -f docker/docker-compose.yml up --build
 ```
 
 This starts two containers:
+
 - `api` — FastAPI backend on port `8000`
 - `ui` — Gradio frontend on port `7860`
 
@@ -165,8 +160,8 @@ Classify a skin image and receive LLM-powered recommendations.
 
 **Request:** `multipart/form-data`
 
-| Field | Type | Description |
-|---|---|---|
+| Field | Type | Description                  |
+| ----- | ---- | ---------------------------- |
 | image | file | JPEG or PNG image, max 10 MB |
 
 **Response:**
