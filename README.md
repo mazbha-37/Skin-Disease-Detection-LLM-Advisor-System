@@ -84,9 +84,9 @@ skin-disease-advisor/
 ├── assets/
 │   ├── model_comparison.png
 │   └── confusion_matrix.png
-├── checkpoints/             # Place best.pt here
+├── checkpoints/
 ├── requirements.txt
-└── .env                     # API keys (do not commit)
+└── .env
 ```
 
 ---
