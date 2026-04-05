@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+python-multipart
+ultralytics
+pillow
+numpy
+google-genai
+python-dotenv
+gradio
+sqlalchemy
+aiosqlite
+httpx
+pytest
+

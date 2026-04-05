@@ -1,0 +1,26 @@
+[
+  {
+    "model": "YOLOv8s",
+    "val_accuracy": 0.8441,
+    "test_accuracy": 0.849,
+    "params_M": 11.2
+  },
+  {
+    "model": "MobileNetV3",
+    "val_accuracy": 0.8054,
+    "test_accuracy": 0.8155,
+    "params_M": 4.2
+  },
+  {
+    "model": "ResNet50",
+    "val_accuracy": 0.7431,
+    "test_accuracy": 0.7297,
+    "params_M": 23.5
+  },
+  {
+    "model": "EfficientNet-B3",
+    "val_accuracy": 0.7199,
+    "test_accuracy": 0.7054,
+    "params_M": 12.0
+  }
+]
